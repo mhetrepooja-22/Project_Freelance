@@ -12,3 +12,5 @@ This project aims to provide a comprehensive analysis of freelance earnings acro
  -Compare fixed-price vs. hourly projects.
  -Study the impact of experience levels on performance.
  -Benchmark platform earnings against overall averages.
+
+## Schema

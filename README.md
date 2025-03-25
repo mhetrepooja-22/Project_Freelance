@@ -7,11 +7,11 @@ This project aims to provide a comprehensive analysis of freelance earnings acro
 
 ## Project Objectives:
 
- -Analyze earnings, job categories, and client regions.
- -Identify top freelancers and platforms by earnings and success rates.
- -Compare fixed-price vs. hourly projects.
- -Study the impact of experience levels on performance.
- -Benchmark platform earnings against overall averages.
+ - Analyze earnings, job categories, and client regions.
+ - Identify top freelancers and platforms by earnings and success rates.
+ - Compare fixed-price vs. hourly projects.
+ - Study the impact of experience levels on performance.
+ - Benchmark platform earnings against overall averages.
 
 ## Schema
 
@@ -171,11 +171,12 @@ WHERE
 ### -- Calculate the average earnings per platform and compare it to the overall average earnings. Show the difference for each platform.
 
 ```sql
-with avg_platform_earnings as (SELECT platform, avg(earnings_usd) as avg_earnings
-FROM freelance
-GROUP BY platform),
-total_avg_earnings as (SELECT distinct(platform),avg(earnings_usd) over() as overall_earnings
-FROM freelance)
+with avg_platform_earnings as
+	(SELECT platform, avg(earnings_usd) as avg_earnings
+	 FROM freelance
+	 GROUP BY platform),
+	 total_avg_earnings as (SELECT distinct(platform),avg(earnings_usd) over() as overall_earnings
+	 FROM freelance)
 SELECT 
     p.platform,
     p.avg_earnings,
@@ -193,13 +194,13 @@ FROM
 
 ```sql
 SELECT 
-	freelancer_id, 
+    freelancer_id, 
     platform,
     job_success_rate, 
     ranking
 FROM 
-	( SELECT 
-			freelancer_id, 
+	( SELECT
+            freelancer_id, 
             platform,
             job_success_rate, 
             dense_rank() OVER(partition by platform ORDER BY job_success_rate DESC) as ranking
@@ -239,13 +240,13 @@ ORDER BY
 
 ```sql
 SELECT 
-	freelancer_id, 
+    freelancer_id, 
     experience_level,
     earnings_usd , 
     ranking
 FROM
 	(SELECT 
-			freelancer_id,
+            freelancer_id,
             experience_level,
             earnings_usd, 
             rank() OVER(partition by experience_level order by earnings_usd DESC) as ranking

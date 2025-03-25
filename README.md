@@ -75,7 +75,7 @@ GROUP BY project_type;
 ```
 
 
-## Intermediate Level (6-10)
+## Intermediate Level 
 
 
 

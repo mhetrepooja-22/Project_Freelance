@@ -15,7 +15,6 @@ This project aims to provide a comprehensive analysis of freelance earnings acro
 
 ## Schema
 
-```sql SELECT * FROM freelance; ```
 
 ### -- Basic Level (1-5)
 

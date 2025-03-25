@@ -13,12 +13,11 @@ This project aims to provide a comprehensive analysis of freelance earnings acro
  - Study the impact of experience levels on performance.
  - Benchmark platform earnings against overall averages.
 
-## Schema
 
 
-### -- Basic Level (1-5)
+## Basic Level queries
 
-### -- What is the total number of jobs completed in the dataset?
+### What is the total number of jobs completed in the dataset?
 
 ```sql
 SELECT 
@@ -29,7 +28,7 @@ FROM
     
     
 
-### -- What is the average earnings per job across the entire dataset?
+### What is the average earnings per job across the entire dataset?
 
 ```sql
 SELECT 
@@ -42,7 +41,7 @@ ORDER BY AVG_earnings DESC;
 
 
 
-### -- How many unique job categories are there, and what are their names?
+### How many unique job categories are there, and what are their names?
 
 ```sql
 SELECT DISTINCT
@@ -53,7 +52,7 @@ FROM
     
     
 
-### -- What is the average client rating for each job category?
+### What is the average client rating for each job category?
 
 ```sql
 SELECT 
@@ -65,7 +64,7 @@ ORDER BY avg_rating DESC;
 ```
 
 
-### -- How many projects were fixed-price and how many were hourly?
+### How many projects were fixed-price and how many were hourly?
 
 ```sql
 SELECT 
@@ -76,11 +75,11 @@ GROUP BY project_type;
 ```
 
 
-### -- Intermediate Level (6-10)
+## Intermediate Level (6-10)
 
 
 
-### -- What is the total earnings generated from each platform?
+### What is the total earnings generated from each platform?
 
 ```sql
 SELECT 
@@ -92,7 +91,7 @@ GROUP BY platform;
 
 
 
-### -- Which job category has the highest average hourly rate?
+### Which job category has the highest average hourly rate?
 
 ```sql
 SELECT 
@@ -106,7 +105,7 @@ LIMIT 1;
 
 
 
-### -- What is the most common experience level among freelancers?
+### What is the most common experience level among freelancers?
 
 ```sql
 SELECT 
@@ -122,7 +121,7 @@ LIMIT 1;
 ```
 
 
-### -- Which client region has the highest total earnings, and how does it compare to other regions?
+### Which client region has the highest total earnings, and how does it compare to other regions?
 
 ```sql
 SELECT 
@@ -136,7 +135,7 @@ LIMIT 1;
 
 
 
-### -- What is the average job success rate across different platforms?
+### What is the average job success rate across different platforms?
 
 ```sql
 SELECT platform, ROUND(avg(job_success_rate), 2) as avg_success_rate
@@ -145,10 +144,10 @@ GROUP BY platform;
 ```
 
 
-### -- Advance level
+## Advance level queries
 
 
-### -- Find the top 3 highest-earning freelancers in each job category, including their earnings, platform, and experience level.
+### Find the top 3 highest-earning freelancers in each job category, including their earnings, platform, and experience level.
 
 ```sql
 with cte as 
@@ -168,7 +167,7 @@ WHERE
     
     
     
-### -- Calculate the average earnings per platform and compare it to the overall average earnings. Show the difference for each platform.
+### Calculate the average earnings per platform and compare it to the overall average earnings. Show the difference for each platform.
 
 ```sql
 with avg_platform_earnings as
@@ -190,7 +189,7 @@ FROM
     
     
     
-### -- Rank freelancers within each platform based on their job success rate. Find top 5 freelancers within each platform.
+### Rank freelancers within each platform based on their job success rate. Find top 5 freelancers within each platform.
 
 ```sql
 SELECT 
@@ -210,7 +209,7 @@ WHERE ranking <= 5;
 
 
 
-### -- Find the client region with the highest total earnings, and calculate the percentage contribution of that region to the overall earnings.
+### Find the client region with the highest total earnings, and calculate the percentage contribution of that region to the overall earnings.
 
 ```sql
 with region_earnings as
@@ -236,7 +235,7 @@ ORDER BY
     
     
     
-### -- Find the top 5 freelancers in each experience level (Beginner, Intermediate, Expert) based on total earnings.
+### Find the top 5 freelancers in each experience level (Beginner, Intermediate, Expert) based on total earnings.
 
 ```sql
 SELECT 

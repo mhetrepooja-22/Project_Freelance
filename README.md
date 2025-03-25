@@ -1,1 +1,1 @@
-# Project_Freelance
+# Freelance earnings data analysis using SQL
